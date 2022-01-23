@@ -91,9 +91,29 @@ Conda can be used to create environments. A conda environment is a directory tha
 specific collection of conda packages. They make it possible to have different versions of python
 and python packages installed on the same system in different environments.
 
+</br>
+NOAH'S NOTE: if the command `conda --version` doesn't work, add the following line to the dotbash_profile file.
+
+```
+export PATH=/Users/$username/miniconda/bin:$PATH
+```
+
+Save the file and restart the terminal. Try `conda --version` again.
+</br>
+
 1. Create a virtual environment with python 3.8 by executing the command: 
    `conda create -y -n bigdata-lab python=3.8 -y`
 2. Activate your virtualenv by executing the command: `conda activate bigdata-lab`
+
+</br> NOAH'S NOTE: After running the above command, my console shows this
+```zsh
+(base) admin@noah-MacBook-Pro ~ % conda activate bigdata-lab
+(bigdata-lab) admin@noah-MacBook-Pro ~ % 
+```
+- To deactivate conda env, `conda deactivate`
+- To remove conda env, `conda env remove --name ENVIRONMENT` (from [stackoverflow](https://stackoverflow.com/questions/49127834/removing-conda-environment))
+- To find where the conda env is stored: `echo $CONDA_PREFIX`
+</br>
 
 
 ### Installing PySpark inside your virtual environment
@@ -118,6 +138,32 @@ data = [i for i in range(10)]
 rdd = spark.sparkContext.parallelize(data)
 rdd.filter(lambda x: x%2 == 0).collect()
 ```
+
+NOAH'S NOTE: Running pyspark gave me error even though I have a version of java installed (`java --version` returned java 17). Try to install java sdk8 with homebrew [link to brew install java](https://mkyong.com/java/how-to-install-java-on-mac-osx/#homebrew-install-java-8-on-macos)
+```bash
+brew search openjdk
+==> Formulae
+openjdk                                   openjdk@11                                  openjdk@8  
+```
+```bash
+brew install openjdk@8
+```
+and this is the installation output notes
+```
+For the system Java wrappers to find this JDK, symlink it with
+  sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+
+openjdk@8 is keg-only, which means it was not symlinked into /usr/local,
+because this is an alternate version of another formula.
+
+If you need to have openjdk@8 first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/openjdk@8/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openjdk@8 you may need to set:
+  export CPPFLAGS="-I/usr/local/opt/openjdk@8/include"
+```
+
+
 5. The output of the last command should be *[0, 2, 4, 6, 8]*.
    Use exit() (all systems) or Ctrl-D (Linux and MacOS only) to exit the interpreter.
 6. Congrats! You have successfully installed PySpark.
@@ -153,6 +199,8 @@ entirely Python-based and does not require a JVM to execute its Python pipelines
 2. If no errors have occurred during the process, Dask has been successfully installed.
 3. To double check if it is working well, run the following command:
 
+NOAH'S NOTE: run pyspark on terminal (or just python3?), and enter these commands one by one while being mindful of tabs and spaces.	
+	
 ```python
 from dask import delayed
 def inc(x):
@@ -167,6 +215,7 @@ z = add(x,y)
 z.compute()
 ```
 4. The output of `z.compute()` should be 5.
+	NOAH'S NOTE: then exit() the python interpreter.
 
 ### Installing Pytest inside your virtual environment
 
@@ -182,7 +231,7 @@ We will be using Pytest to evaluate your assignment solutions.
 Git is a version-control system for tracking changes in source code during development.
 
 1. With your venv activated, we will execute the command `conda install -y git` in the Command
-   Prompt.
+   Prompt. NOAH'S NOTE: even though i have git installed already, i ran the conda install anyway.
 2. Execute the command `git version` to ensure git has successfully been installed.
 
 Congrats! Your system is now configured for the course.
@@ -192,6 +241,19 @@ otherwise, you will find that they are missing.
 If you would like to exit your virtual environment, entering the command `conda deactivate`
 will do it.
 
+### Using vscode
+- Clone repo
+- Open repo in vscode
+- Activate the conda env: `conda activate bigdata-lab`
+- Select Python interpreter (NOT the regular python on machine, but the one installed in the conda env bigdata-lab)
+![image](https://user-images.githubusercontent.com/46866682/150701609-101e1cbc-ce2a-4107-8fa0-6d1450744066.png)
+- Configure tests. Open the config `Cmd + P`, select pytest, select `./tests` dir.
+- Install two python extensions: python test explorer and (?) idk the name of the second one, but the prompt will tell you to install it
+- Click on the tests icon, you'll see the test explorer and you can run the test. You should see 24 tests failing.
+![image](https://user-images.githubusercontent.com/46866682/150701692-47e90683-b999-4e66-a30a-d84663800ffa.png)
+
+
+	
 ### Installing PyCharm
 
 PyCharm is an Integrated Development Environment (IDE) that may facilitate your development in Python.

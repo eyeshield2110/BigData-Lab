@@ -22,7 +22,7 @@ PySpark, Dask and PyTest.
 ```
 2. Grant execution rights to the installer with the command
    `chmod +x Miniconda3-latest-Linux-$(uname -i).sh`.
-3. Execute the installer by executing the command `./Miniconda3-latest-Linux-$(uname -i).sh`.
+3. Execute the installer by executing the command `./Miniconda3-latest-Linux-$(uname -i).sh`. 
    Press ENTER and scroll through the license agreement by pressing SPACE. If you accept the
    license agreement type `yes` and press ENTER. Enter the path where you want to install anaconda
    on your computer (for example `~/.condainstallation`). Finally, type `yes` to let the installer
@@ -41,16 +41,26 @@ PySpark, Dask and PyTest.
 
 1. Download Miniconda for Linux by executing the following command:
    Note: Use `curl -O` if `wget` is not installed on your system.
+	
+	NOAH'S NOTE: run the command `brew install wget`
 
 ```
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-$(uname -m).sh
 ```
 2. Grant execution rights to the installer with the command
    `chmod +x Miniconda3-latest-MacOSX-$(uname -m).sh`.
-3. Execute the installer by executing the command `./Miniconda3-latest-MacOSX-$(uname -i).sh`.
+3. Execute the installer by executing the command `./Miniconda3-latest-MacOSX-$(uname -i).sh`. 
+	
+</br></br> NOAH'S NOTE: This didn't work for me, so (assuming that miniconda was installed in root dir, which you can check in the installation output of step 1) I ran `./Miniconda3-latest-MacOSX-x86_64.sh`, or whatever name it has, just run `ls` to find the exact file name </br></br>
+
    Press ENTER and scroll through the license agreement by pressing SPACE. If you accept the
    license agreement type `yes` and press ENTER. Enter the path where you want to install anaconda
-   on your computer (for example `~/.condainstallation`). Finally, type `yes` to let the installer
+   on your computer (for example `~/.condainstallation`). 
+   
+   </br></br> NOAH'S NOTE: For me, it installed in `Miniconda3 will now be installed into this location:
+/Users/admin/miniconda3`</br></br>
+   
+   Finally, type `yes` to let the installer
    initialize conda.
 4. Open a new terminal.
 5. To prevent conda from activating the default environment whenever you open a shell, use the

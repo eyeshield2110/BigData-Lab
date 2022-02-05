@@ -241,6 +241,8 @@ otherwise, you will find that they are missing.
 If you would like to exit your virtual environment, entering the command `conda deactivate`
 will do it.
 
+NOAH'S NOTE: I can't seem to be able to run pyspark in the directory of my assignments in vscode 
+=> Need to set pyspark environment variable in .bash_profile
 ### Using vscode
 - Clone repo
 - Open repo in vscode

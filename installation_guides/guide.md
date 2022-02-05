@@ -242,7 +242,12 @@ If you would like to exit your virtual environment, entering the command `conda 
 will do it.
 
 NOAH'S NOTE: I can't seem to be able to run pyspark in the directory of my assignments in vscode 
-=> Need to set pyspark environment variable in .bash_profile
+=> Need to set pyspark environment variable in .bash_profile ... Didn't work
+
+This worked:
+![image](https://user-images.githubusercontent.com/46866682/152660084-4e3b03c9-8e2c-4c75-9b80-0b0438fcdf25.png)
+
+	
 ### Using vscode
 - Clone repo
 - Open repo in vscode

@@ -247,6 +247,12 @@ NOAH'S NOTE: I can't seem to be able to run pyspark in the directory of my assig
 This worked:
 ![image](https://user-images.githubusercontent.com/46866682/152660084-4e3b03c9-8e2c-4c75-9b80-0b0438fcdf25.png)
 
+NOAH'S NOTE: Had problem with error "ModuleNotFound: Dask"
+
+Solution: Install dask again (in conda env) with pip
+```python3 pip install "dask[complete]"```
+![image](https://user-images.githubusercontent.com/46866682/152660489-8a2f05a5-e91e-4894-b25d-0dfc03ff4f40.png)
+Reference: https://docs.dask.org/en/stable/install.html
 	
 ### Using vscode
 - Clone repo

@@ -135,6 +135,21 @@ df.groupBy("x").count()
 df.groupBy("x").sum()
 df.groupBy("x").mean()
 ```
+NOAH'S NOTE: My demo of the groupBy method using a csv with headers name,age,major and with two rows with the name "Noah"
+```python
+df.groupBy(df.name).count().show()
++-----+-----+
+| name|count|
++-----+-----+
+|Thanh|    1|
+| Noah|    2|
+| Will|    1|
+| Jana|    1|
+| Jess|    1|
++-----+-----+
+```
+
+  
 - **orderBy**("column1", "column2", ...): Order the dataframe with one or more column.
 ```python
 from pyspark.sql.functions import desc

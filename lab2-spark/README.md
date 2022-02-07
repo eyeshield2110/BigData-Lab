@@ -158,7 +158,7 @@ df.groupBy(df.name).count().sort(df.name)
 | Will|    1|
 +-----+-----+
 ```
-
+NOAH'S NOTE: How to check the current df's schema => `df.printSchema()`
   
 - **orderBy**("column1", "column2", ...): Order the dataframe with one or more column.
 ```python

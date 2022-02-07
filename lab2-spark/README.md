@@ -120,6 +120,15 @@ df = df.select("Park Name")
 ```python
 df = df.where("x = 2")
 ```
+NOAH'S NOTE: For me, this works for a csv file with header name,age,major
+```python
+df.where(df.name == "Noah").show()
++----+---+-------+
+|name|age|  major|
++----+---+-------+
+|Noah| 24|CompSci|
++----+---+-------+
+```
 - **groupBy**(): Group rows together using aggregate function such as min, max or avg.
 ```python
 df.groupBy("x").count()

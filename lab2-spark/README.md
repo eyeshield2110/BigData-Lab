@@ -135,7 +135,7 @@ df.groupBy("x").count()
 df.groupBy("x").sum()
 df.groupBy("x").mean()
 ```
-NOAH'S NOTE: My demo of the groupBy method using a csv with headers name,age,major and with two rows with the name "Noah"
+NOAH'S NOTE: My demo of the groupBy method using a csv with headers name,age,major and with two rows with the name "Noah". Also, cannot apply methods on GroupObject like this: df.groupBy(df.name).sort(df.name). => Need to aggregate it first, before using other transformation.
 ```python
 df.groupBy(df.name).count().show()
 +-----+-----+
@@ -146,6 +146,16 @@ df.groupBy(df.name).count().show()
 | Will|    1|
 | Jana|    1|
 | Jess|    1|
++-----+-----+
+df.groupBy(df.name).count().sort(df.name)
++-----+-----+
+| name|count|
++-----+-----+
+| Jana|    1|
+| Jess|    1|
+| Noah|    2|
+|Thanh|    1|
+| Will|    1|
 +-----+-----+
 ```
 

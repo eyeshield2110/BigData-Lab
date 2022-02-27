@@ -40,6 +40,13 @@ The `visualize` function can be used to visualize the graph
 ```python
 z.visualize()
 ```
+NOAH'S NOTE: Problem when trying to use visualize()
+- Use `conda install python-graphviz` package
+- This installs the package in the miniconda environment, and the command can be run in the interactive python shell when selecting the python interpreter install IN CONDA (path: ). Running python3> z.visualize() works in root shell, but problems can occur when trying to run in the integratd terminal in vscode
+- Check this link: 
+https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment
+- Solution is to select the correct python interpreter for the integrated terminal: `cmd+p` and `Python: Run Python: Run Python File in Terminal`
+
 ![](figures/visualize.png)
 
 All Dask objects have a `dask` attribute that stores the calculations necessary to produce the result in a dictionary.
